@@ -1,9 +1,9 @@
 package com.example.chemapp30;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +21,8 @@ import com.example.chemapp30.database.Chemical;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -29,29 +31,39 @@ public class ScanOrSearchActivity extends AppCompatActivity {
     public static final String EXTRA_CODE = "code";
 
     private EditText edtCode;
-    private Button btnSearch, btnScan;
+    private Button btnSearch, btnScanQR, btnScanBarcode; // <- เพิ่มปุ่มแยก
     private final ExecutorService io = Executors.newSingleThreadExecutor();
 
-    // 1) ตัวขอสแกน ZXing (Activity Result API)
+    // โหมดที่จะสแกนหลังจากได้สิทธิ์กล้อง
+    private enum ScanMode { QR_ONLY, BARCODE_1D_COMMON }
+    private ScanMode pendingMode = null;
+
+    // 1) ZXing (Activity Result API)
     private final ActivityResultLauncher<ScanOptions> barcodeLauncher =
             registerForActivityResult(new ScanContract(), result -> {
                 if (result.getContents() != null) {
                     String scanned = result.getContents().trim();
+                    String format = result.getFormatName(); // เช่น QR_CODE, EAN_13, CODE_128
                     edtCode.setText(scanned);
+                    Toast.makeText(this, "สแกนสำเร็จ (" + format + "): " + scanned, Toast.LENGTH_SHORT).show();
                     doSearch(); // สแกนได้แล้วค้นหาเลย
                 }
             });
 
-    // 2) ขอสิทธิ์กล้องตอนรันไทม์ (Android 6+)
+    // 2) ขอสิทธิ์กล้องตอนรันไทม์
     private final ActivityResultLauncher<String> requestCameraPermission =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
                 if (granted) {
-                    startScan();
+                    // กลับไปสแกนตามโหมดที่ผู้ใช้กดปุ่มไว้
+                    if (pendingMode != null) {
+                        startScan(pendingMode);
+                    }
                 } else {
                     Toast.makeText(this, "ต้องอนุญาตสิทธิ์กล้องเพื่อสแกน", Toast.LENGTH_SHORT).show();
                 }
             });
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,14 +75,29 @@ public class ScanOrSearchActivity extends AppCompatActivity {
 
         edtCode = findViewById(R.id.edtCode);
         btnSearch = findViewById(R.id.btnSearch);
-        btnScan = findViewById(R.id.btnScan);
+
+        // เปลี่ยนจากปุ่มเดิม R.id.btnScan -> ใช้เป็น "สแกน QR"
+        btnScanQR = findViewById(R.id.btnScan);
+        // ปุ่มใหม่ "สแกนบาร์โค้ด"
+        btnScanBarcode = findViewById(R.id.btnScanBarcode);
 
         btnSearch.setOnClickListener(v -> doSearch());
 
-        // เปลี่ยนให้ปุ่มสแกนเรียก startScan() (มีเช็ค permission)
-        btnScan.setOnClickListener(v -> {
+        // ปุ่มสแกน QR
+        btnScanQR.setOnClickListener(v -> {
+            pendingMode = ScanMode.QR_ONLY;
             if (hasCameraPermission()) {
-                startScan();
+                startScan(pendingMode);
+            } else {
+                requestCameraPermission.launch(Manifest.permission.CAMERA);
+            }
+        });
+
+        // ปุ่มสแกนบาร์โค้ด (1D ทั่วไป)
+        btnScanBarcode.setOnClickListener(v -> {
+            pendingMode = ScanMode.BARCODE_1D_COMMON;
+            if (hasCameraPermission()) {
+                startScan(pendingMode);
             } else {
                 requestCameraPermission.launch(Manifest.permission.CAMERA);
             }
@@ -82,16 +109,36 @@ public class ScanOrSearchActivity extends AppCompatActivity {
                 == PackageManager.PERMISSION_GRANTED;
     }
 
-    // 3) ฟังก์ชันเริ่มสแกน (กำหนดให้รับเฉพาะ QR Code)
-    private void startScan() {
+    // 3) ฟังก์ชันเริ่มสแกน แยกตามโหมด
+    private void startScan(@NonNull ScanMode mode) {
         ScanOptions options = new ScanOptions();
-        options.setDesiredBarcodeFormats(ScanOptions.QR_CODE); // เน้น QR
-        options.setPrompt("เล็งกล้องไปที่ QR Code");
-        options.setCameraId(0); // กล้องหลัง
+
+        switch (mode) {
+            case QR_ONLY:
+                options.setDesiredBarcodeFormats(ScanOptions.QR_CODE);
+                options.setPrompt("เล็งกล้องไปที่ QR Code");
+                break;
+
+            case BARCODE_1D_COMMON:
+                // 1D ที่พบบ่อย (ปรับเพิ่ม/ลดได้ตามต้องการ)
+                List<String> oneD = Arrays.asList(
+                        ScanOptions.EAN_13,
+                        ScanOptions.EAN_8,
+                        ScanOptions.UPC_A,
+                        ScanOptions.UPC_E,
+                        ScanOptions.CODE_128,
+                        ScanOptions.CODE_39,
+                        ScanOptions.ITF
+                );
+                options.setDesiredBarcodeFormats(oneD);
+                options.setPrompt("เล็งกล้องไปที่บาร์โค้ด (EAN/UPC/Code128 ฯลฯ)");
+                break;
+        }
+
+        options.setCameraId(0);                 // กล้องหลัง
         options.setBeepEnabled(true);
         options.setBarcodeImageEnabled(false);
-        options.setOrientationLocked(false); // ให้หมุนจอได้
-        // ถ้าอยากสแกนบาร์โค้ดชนิดอื่นด้วย ให้ใช้ .setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES)
+        options.setOrientationLocked(false);    // อนุญาตหมุนจอ
 
         barcodeLauncher.launch(options);
     }
