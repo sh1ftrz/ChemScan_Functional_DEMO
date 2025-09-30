@@ -28,7 +28,7 @@ public class ChemicalDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chemical_detail);
 
         findViewById(R.id.backBTNCD).setOnClickListener(v ->
-                startActivity(new Intent(this, MainActivity.class)));
+                startActivity(new Intent(this, ScanOrSearchActivity.class)));
 
         txtCode = findViewById(R.id.txtCode);
         txtName = findViewById(R.id.txtName);
