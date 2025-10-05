@@ -21,21 +21,22 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956" />
+        app:layout_constraintVertical_bias="0.91" />
 
     <TextView
         android:id="@+id/txtResult"
-        android:layout_width="328dp"
-        android:layout_height="412dp"
-        android:textStyle="bold"
+        android:layout_width="344dp"
+        android:layout_height="379dp"
         android:background="@color/white"
+        android:textColor="@color/black"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717" />
+        app:layout_constraintVertical_bias="0.653" />
 
     <Button
         android:id="@+id/btnCheck"
@@ -58,6 +59,8 @@
         android:layout_height="50dp"
         android:background="@color/white"
         android:hint="รหัสสาร 1"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,9 +73,11 @@
         android:id="@+id/edtCode2"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:textStyle="bold"
         android:background="@color/white"
         android:hint="รหัสสาร 2"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
