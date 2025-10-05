@@ -5,13 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/chemscan_background_final"
     tools:context=".MixCheckActivity">
 
     <Button
         android:id="@+id/homeBTNMC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
         android:text="Home"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -23,19 +27,24 @@
         android:id="@+id/txtResult"
         android:layout_width="328dp"
         android:layout_height="412dp"
+        android:textStyle="bold"
+        android:background="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716" />
+        app:layout_constraintVertical_bias="0.717" />
 
     <Button
         android:id="@+id/btnCheck"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:backgroundTint="@color/white"
         android:text="ตรวจสอบ"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -47,18 +56,22 @@
         android:id="@+id/edtCode1"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:background="@color/white"
         android:hint="รหัสสาร 1"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.073" />
 
     <EditText
         android:id="@+id/edtCode2"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:textStyle="bold"
+        android:background="@color/white"
         android:hint="รหัสสาร 2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
