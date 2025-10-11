@@ -43,42 +43,78 @@ public class CalculationActivity extends AppCompatActivity {
 
     private void calculateMol() {
         try {
-            double solute = parseDouble(edtInput1);
-            double volume = parseDouble(edtInput2);
-            if (volume <= 0) {
-                Toast.makeText(this, "ปริมาตรต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
+
+
+            //Mol
+            double Massofsubtance = parseDouble(edtInput1);
+            double Molarmass = parseDouble(edtInput2);
+
+
+            if (Massofsubtance <= 0) {
+                Toast.makeText(this, "มวลของสารต้องมากกว่า 0", Toast.LENGTH_SHORT).show()
+                ;
                 return;
             }
-            double wv = solute / volume;
-            Toast.makeText(this, String.format("Mol = %.2f Mol", wv), Toast.LENGTH_LONG).show();
+
+            if (Molarmass <= 0) {
+                Toast.makeText(this, "มวลโมเลกุลต้องมากกว่า 0", Toast.LENGTH_SHORT).show()
+                ;
+                return;
+            }
+
+            //สูตรหาจำนวนMol
+            double Numberofmoles = Massofsubtance / Molarmass;
+            Toast.makeText(this, String.format("Numberofmoles = %.2f Mol", Numberofmoles), Toast.LENGTH_LONG).show();
         } catch (NumberFormatException e) {
             Toast.makeText(this, "กรุณากรอกตัวเลขให้ถูกต้อง", Toast.LENGTH_SHORT).show();
         }
     }
+
+
     private void calculateWW() {
         try {
-            double solute = parseDouble(edtInput1);
-            double volume = parseDouble(edtInput2);
-            if (volume <= 0) {
-                Toast.makeText(this, "ปริมาตรต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
+
+
+            double SoluteMass = parseDouble(edtInput1);
+            double SolutionMass = parseDouble(edtInput2);
+
+
+            if (SoluteMass <= 0) {
+                Toast.makeText(this, "น้ำหนักสารตัวถูกละลายต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
                 return;
             }
-            double wv = solute / volume * 100.0;
-            Toast.makeText(this, String.format("w/w = %.2f%%", wv), Toast.LENGTH_LONG).show();
+            if (SolutionMass <= 0) {
+                Toast.makeText(this, "น้ำหนักของสารละลายต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            //สูตรหา%WW
+            double WW = SoluteMass / SolutionMass * 100.0;
+            Toast.makeText(this, String.format("w/w = %.2f%%", WW), Toast.LENGTH_LONG).show();
         } catch (NumberFormatException e) {
             Toast.makeText(this, "กรุณากรอกตัวเลขให้ถูกต้อง", Toast.LENGTH_SHORT).show();
         }
     }
+
+
     private void calculateWV() {
         try {
-            double solute = parseDouble(edtInput1);
-            double volume = parseDouble(edtInput2);
-            if (volume <= 0) {
-                Toast.makeText(this, "ปริมาตรต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
+            double SoluteMass = parseDouble(edtInput1);
+            double SoluteVolume = parseDouble(edtInput2);
+
+
+            if (SoluteMass <= 0) {
+                Toast.makeText(this, "น้ำหนักสารตัวถูกละลายต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
                 return;
             }
-            double wv = solute / volume * 100.0;
-            Toast.makeText(this, String.format("w/v = %.2f%%", wv), Toast.LENGTH_LONG).show();
+            if (SoluteVolume <= 0) {
+                Toast.makeText(this, "ปริมาตรของสารละลายต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
+            double WV = SoluteMass / SoluteVolume * 100.0;
+            Toast.makeText(this, String.format("w/v = %.2f%%", WV), Toast.LENGTH_LONG).show();
         } catch (NumberFormatException e) {
             Toast.makeText(this, "กรุณากรอกตัวเลขให้ถูกต้อง", Toast.LENGTH_SHORT).show();
         }
@@ -86,14 +122,23 @@ public class CalculationActivity extends AppCompatActivity {
 
     private void calculateVV() {
         try {
-            double volSolute = parseDouble(edtInput1);
-            double volSolution = parseDouble(edtInput2);
-            if (volSolution <= 0) {
-                Toast.makeText(this, "ปริมาตรต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
+            double SoluteVolume = parseDouble(edtInput1);
+            double SolutionVolume = parseDouble(edtInput2);
+
+
+            if (SoluteVolume <= 0) {
+                Toast.makeText(this, "ปริมาตรของตัวถูกต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
                 return;
             }
-            double vv = volSolute / volSolution * 100.0;
-            Toast.makeText(this, String.format("v/v = %.2f%%", vv), Toast.LENGTH_LONG).show();
+
+            if (SolutionVolume <= 0) {
+                Toast.makeText(this, "ปริมาตรของสารละลายต้องมากกว่า 0", Toast.LENGTH_SHORT).show();
+                return;
+
+
+            }
+            double VV = SoluteVolume / SolutionVolume * 100.0;
+            Toast.makeText(this, String.format("v/v = %.2f%%", VV), Toast.LENGTH_LONG).show();
         } catch (NumberFormatException e) {
             Toast.makeText(this, "กรุณากรอกตัวเลขให้ถูกต้อง", Toast.LENGTH_SHORT).show();
         }
