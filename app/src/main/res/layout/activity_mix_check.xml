@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/chemscan_background_final"
+    android:background="@drawable/chemscan_background_v2__actual_finale_"
     tools:context=".MixCheckActivity">
 
     <Button
         android:id="@+id/homeBTNMC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/yellow"
         android:text="Home"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -42,7 +42,7 @@
         android:id="@+id/btnCheck"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/yellow"
         android:text="ตรวจสอบ"
         android:textColor="@color/black"
         android:textStyle="bold"

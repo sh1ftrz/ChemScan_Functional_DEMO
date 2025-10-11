@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/chemscan_background_final"
+    android:background="@drawable/chemscan_background_v2__actual_finale_"
     tools:context=".ChemicalDetailActivity">
 
     <!-- เพิ่มช่องแสดงรหัสสารให้ตรงกับโค้ด Java -->
@@ -13,7 +13,7 @@
     <TextView
         android:id="@+id/txtCode"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@color/white"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -29,7 +29,7 @@
     <TextView
         android:id="@+id/txtName"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@color/white"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -39,59 +39,59 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.133"
+        app:layout_constraintVertical_bias="0.15"
         tools:text="Sulfuric Acid" />
 
     <TextView
         android:id="@+id/txtInfo"
         android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:textStyle="bold"
+        android:layout_height="75dp"
         android:background="@color/white"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.267"
+        app:layout_constraintVertical_bias="0.271"
         tools:text="ข้อมูล: …" />
 
     <TextView
         android:id="@+id/txtProperty"
         android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:textStyle="bold"
+        android:layout_height="125dp"
         android:background="@color/white"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378"
+        app:layout_constraintVertical_bias="0.433"
         tools:text="คุณสมบัติ: …" />
 
     <TextView
         android:id="@+id/txtFirstAid"
         android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:textStyle="bold"
+        android:layout_height="125dp"
         android:background="@color/white"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548"
+        app:layout_constraintVertical_bias="0.653"
         tools:text="ปฐมพยาบาล: …" />
 
     <Button
         android:id="@+id/backBTNCD"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/yellow"
         android:text="Back"
         android:textColor="@color/black"
         android:textStyle="bold"

@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/chemscan_background_final"
+    android:background="@drawable/chemscan_background_v2__actual_finale_"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btnScan"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/yellow"
         android:text="ค้นหาสาร"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -27,7 +27,7 @@
         android:id="@+id/btnAddChem"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/yellow"
         android:text="เพิ่มสาร"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -42,7 +42,7 @@
         android:id="@+id/btnCalc"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/yellow"
         android:text="คำนวณเคมี"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -57,7 +57,7 @@
         android:id="@+id/btnMix"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/yellow"
         android:text="ตรวจสอบการผสมสาร"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -72,7 +72,7 @@
         android:id="@+id/btnAddMix"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/yellow"
         android:text="เพิ่มคู่สารอันตราย"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -85,13 +85,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="165dp"
-        android:layout_height="147dp"
+        android:layout_width="181dp"
+        android:layout_height="172dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174"
-        app:srcCompat="@drawable/logo_removebg" />
+        app:layout_constraintVertical_bias="0.141"
+        app:srcCompat="@drawable/logov2_removebg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
