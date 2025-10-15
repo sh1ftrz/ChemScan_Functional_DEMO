@@ -23,8 +23,53 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046"
+        app:layout_constraintVertical_bias="0.067"
         tools:text="CODE: H2SO4" />
+
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.283"
+        tools:text="ข้อมูล: …" />
+
+    <TextView
+        android:id="@+id/txtFirstAid"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.692"
+        tools:text="ปฐมพยาบาลเบื้องต้น: …" />
+
+    <TextView
+        android:id="@+id/txtProperty"
+        android:layout_width="350dp"
+        android:layout_height="125dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.445"
+        tools:text="คุณสมบัติ: …" />
 
     <TextView
         android:id="@+id/txtName"
@@ -39,53 +84,8 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintVertical_bias="0.171"
         tools:text="Sulfuric Acid" />
-
-    <TextView
-        android:id="@+id/txtInfo"
-        android:layout_width="350dp"
-        android:layout_height="75dp"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271"
-        tools:text="ข้อมูล: …" />
-
-    <TextView
-        android:id="@+id/txtProperty"
-        android:layout_width="350dp"
-        android:layout_height="125dp"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433"
-        tools:text="คุณสมบัติ: …" />
-
-    <TextView
-        android:id="@+id/txtFirstAid"
-        android:layout_width="350dp"
-        android:layout_height="125dp"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653"
-        tools:text="ปฐมพยาบาล: …" />
 
     <Button
         android:id="@+id/backBTNCD"

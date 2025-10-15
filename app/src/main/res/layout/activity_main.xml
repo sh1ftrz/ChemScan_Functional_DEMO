@@ -8,20 +8,16 @@
     android:background="@drawable/chemscan_background_v2__actual_finale_"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnScan"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/yellow"
-        android:text="ค้นหาสาร"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="181dp"
+        android:layout_height="172dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.196"
+        app:srcCompat="@drawable/logov2_removebg" />
 
     <Button
         android:id="@+id/btnAddChem"
@@ -36,37 +32,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
-
-    <Button
-        android:id="@+id/btnCalc"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/yellow"
-        android:text="คำนวณเคมี"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
-
-    <Button
-        android:id="@+id/btnMix"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/yellow"
-        android:text="ตรวจสอบการผสมสาร"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.602" />
+        app:layout_constraintVertical_bias="0.562" />
 
     <Button
         android:id="@+id/btnAddMix"
@@ -81,17 +47,51 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" />
+        app:layout_constraintVertical_bias="0.729" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="181dp"
-        android:layout_height="172dp"
+    <Button
+        android:id="@+id/btnMix"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/yellow"
+        android:text="ตรวจสอบการผสมสาร"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141"
-        app:srcCompat="@drawable/logov2_removebg" />
+        app:layout_constraintVertical_bias="0.646" />
+
+    <Button
+        android:id="@+id/btnScan"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/yellow"
+        android:text="ค้นหาสาร"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.478" />
+
+    <Button
+        android:id="@+id/btnCalc"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/yellow"
+        android:text="คำนวณเคมี"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.816" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
